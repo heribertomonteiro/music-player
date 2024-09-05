@@ -6,8 +6,8 @@ import { LinearGradient } from "expo-linear-gradient";
 
 export default function Layout(){
   return(
-    <View className='flex-1 bg-vinho justify-center items-center'>
-      <LinearGradient colors={['rgba(0,0,0,0.8)', 'transparent']} style={styles.background}/>
+    <View className='flex-1 bg-vinho'>
+      <LinearGradient colors={['rgba(0,0,0,1)', 'transparent']} style={styles.background}/>
       <Slot/>
     </View>
   ) 

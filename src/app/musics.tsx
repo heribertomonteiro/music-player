@@ -1,12 +1,8 @@
-import { Text, View } from 'react-native';
-import { Link } from 'expo-router';
+import SearchComponent from "../components/searchComponent";
 
-export default function App() {
+
+export default function Musics(){
   return (
-    <View className='justify-center items-center'>
-      <Text>Heriberto Gostoso</Text>
-      <Link href={"/" as any}>Home</Link>
-    </View>
+    <SearchComponent/>
   );
 }
-
