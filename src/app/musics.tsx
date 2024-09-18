@@ -1,7 +1,8 @@
-import { View, Image, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Image, Text, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
 import SearchComponent from "../components/searchComponent";
 import Modal from "../components/ModalComponent";
 import { useState } from "react";
+
 
 
 export default function Musics(){
@@ -15,15 +16,87 @@ export default function Musics(){
           <Text className="text-white text-2xl">Grafith</Text>
         </View>
         <View style={styles.container}>
-          <Text className="text-white text-2xl">Musicas</Text>
+          <Text className="text-white text-2xl mb-10">Musicas</Text>
         </View>
-        <View className="mt-10 flex-1 flex-row items-center justify-between" style={styles.musicas}>
+        <ScrollView style={{height: 400}}>
+        <View className="mb-10 flex-1 flex-row items-center justify-between" style={styles.musicas}>
             <View className="flex-row items-center gap-4">
               <Image source={require("../assets/images/retangulo.png")} />
-              <Text className="text-white text-center text-1xl">Musica 1</Text> 
+              <Text className="text-white text-center text-1xl">Musica 2</Text> 
             </View>
             <TouchableOpacity onPress={() => setModal(true)}><Image source={require('../assets/images/Frame.png')} className="mr-1"/></TouchableOpacity>
         </View>
+        <View className="mb-10 flex-1 flex-row items-center justify-between" style={styles.musicas}>
+            <View className="flex-row items-center gap-4">
+              <Image source={require("../assets/images/retangulo.png")} />
+              <Text className="text-white text-center text-1xl">Musica 3</Text> 
+            </View>
+            <TouchableOpacity onPress={() => setModal(true)}><Image source={require('../assets/images/Frame.png')} className="mr-1"/></TouchableOpacity>
+        </View>
+        <View className="mb-10 flex-1 flex-row items-center justify-between" style={styles.musicas}>
+            <View className="flex-row items-center gap-4">
+              <Image source={require("../assets/images/retangulo.png")} />
+              <Text className="text-white text-center text-1xl">Musica 4</Text> 
+            </View>
+            <TouchableOpacity onPress={() => setModal(true)}><Image source={require('../assets/images/Frame.png')} className="mr-1"/></TouchableOpacity>
+        </View>
+        <View className="mb-10 flex-1 flex-row items-center justify-between" style={styles.musicas}>
+            <View className="flex-row items-center gap-4">
+              <Image source={require("../assets/images/retangulo.png")} />
+              <Text className="text-white text-center text-1xl">Musica 5</Text> 
+            </View>
+            <TouchableOpacity onPress={() => setModal(true)}><Image source={require('../assets/images/Frame.png')} className="mr-1"/></TouchableOpacity>
+        </View>
+        <View className="mb-10 flex-1 flex-row items-center justify-between" style={styles.musicas}>
+            <View className="flex-row items-center gap-4">
+              <Image source={require("../assets/images/retangulo.png")} />
+              <Text className="text-white text-center text-1xl">Musica 6</Text> 
+            </View>
+            <TouchableOpacity onPress={() => setModal(true)}><Image source={require('../assets/images/Frame.png')} className="mr-1"/></TouchableOpacity>
+        </View>
+        <View className="mb-10 flex-1 flex-row items-center justify-between" style={styles.musicas}>
+            <View className="flex-row items-center gap-4">
+              <Image source={require("../assets/images/retangulo.png")} />
+              <Text className="text-white text-center text-1xl">Musica 7</Text> 
+            </View>
+            <TouchableOpacity onPress={() => setModal(true)}><Image source={require('../assets/images/Frame.png')} className="mr-1"/></TouchableOpacity>
+        </View>
+        <View className="mb-10 flex-1 flex-row items-center justify-between" style={styles.musicas}>
+            <View className="flex-row items-center gap-4">
+              <Image source={require("../assets/images/retangulo.png")} />
+              <Text className="text-white text-center text-1xl">Musica 8</Text> 
+            </View>
+            <TouchableOpacity onPress={() => setModal(true)}><Image source={require('../assets/images/Frame.png')} className="mr-1"/></TouchableOpacity>
+        </View>
+        <View className="mb-10 flex-1 flex-row items-center justify-between" style={styles.musicas}>
+            <View className="flex-row items-center gap-4">
+              <Image source={require("../assets/images/retangulo.png")} />
+              <Text className="text-white text-center text-1xl">Musica 9</Text> 
+            </View>
+            <TouchableOpacity onPress={() => setModal(true)}><Image source={require('../assets/images/Frame.png')} className="mr-1"/></TouchableOpacity>
+        </View>
+        <View className="mb-10 flex-1 flex-row items-center justify-between" style={styles.musicas}>
+            <View className="flex-row items-center gap-4">
+              <Image source={require("../assets/images/retangulo.png")} />
+              <Text className="text-white text-center text-1xl">Musica 10</Text> 
+            </View>
+            <TouchableOpacity onPress={() => setModal(true)}><Image source={require('../assets/images/Frame.png')} className="mr-1"/></TouchableOpacity>
+        </View>
+        <View className="mb-10 flex-1 flex-row items-center justify-between" style={styles.musicas}>
+            <View className="flex-row items-center gap-4">
+              <Image source={require("../assets/images/retangulo.png")} />
+              <Text className="text-white text-center text-1xl">Musica 11</Text> 
+            </View>
+            <TouchableOpacity onPress={() => setModal(true)}><Image source={require('../assets/images/Frame.png')} className="mr-1"/></TouchableOpacity>
+        </View>
+        <View className="mb-10 flex-1 flex-row items-center justify-between" style={styles.musicas}>
+            <View className="flex-row items-center gap-4">
+              <Image source={require("../assets/images/retangulo.png")} />
+              <Text className="text-white text-center text-1xl">Musica 12</Text> 
+            </View>
+            <TouchableOpacity onPress={() => setModal(true)}><Image source={require('../assets/images/Frame.png')} className="mr-1"/></TouchableOpacity>
+        </View>
+        </ScrollView>
       </View>
       <Modal
         show={modal}
