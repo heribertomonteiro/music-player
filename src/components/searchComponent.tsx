@@ -11,7 +11,6 @@ export default function SearchComponent() {
         <AntDesign name="search" size={24} color="white" />
       </TouchableOpacity>
       </View>
-      <Link href={"/" as any}>Home</Link>
     </View>
   );
 }
