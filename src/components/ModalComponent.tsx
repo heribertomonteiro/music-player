@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, Animated, Dimensions } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, Animated, Dimensions, Image } from 'react-native'
 
 const { height } = Dimensions.get('window')
 
@@ -51,9 +51,17 @@ const Modal = ({ show, close }: any) => {
         }]}
       >
 
-
+        <TouchableOpacity style={styles.btn}>
+            <Image source={require('../assets/images/adicionar.png')}/>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.btn}>
+            <Image source={require('../assets/images/galeria.png')}/>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.btn}>
+            <Image source={require('../assets/images/compartilhar.png')}/>
+        </TouchableOpacity>
         <TouchableOpacity style={styles.btn} onPress={close}>
-          <Text style={{ color: '#fff' }}>Close</Text>
+          <Text style={{ color: '#fff' }}>Fechar</Text>
         </TouchableOpacity>
       </Animated.View>
     </Animated.View>
@@ -97,7 +105,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#9F102C',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 10
+    marginTop: 10,
   }
 })
 

@@ -3,6 +3,7 @@ import SearchComponent from "../components/searchComponent";
 import Modal from "../components/ModalComponent";
 import { useState } from "react";
 
+
 export default function Musics(){
   const [modal, setModal] = useState(false)
   return (
