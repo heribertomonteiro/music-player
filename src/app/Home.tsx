@@ -5,6 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import NavBarComponent from '../components/NavBarComponent';
 import SearchComponent from '../components/searchComponent';
+import { Link } from 'expo-router';
 
 type RootStackParamList = {
   Home: undefined;
@@ -48,10 +49,12 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
           data={playlists}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
+            
             <View style={styles.playlistItem}>
-              <Image source={{ uri: item.image }} style={styles.playlistImage} />
+            <Image source={{ uri: item.image }} style={styles.playlistImage} />
               <Text style={styles.playlistText}>{item.name}</Text>
             </View>
+             
           )}
           showsHorizontalScrollIndicator={false}
         />
@@ -62,10 +65,12 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
           data={artists}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
+            <TouchableOpacity><Link href={"/Musics" as any}>
             <View style={styles.artistItem}>
               <Image source={{ uri: item.image }} style={styles.artistImage} />
               <Text style={styles.artistText}>{item.name}</Text>
             </View>
+            </Link></TouchableOpacity>
           )}
           showsHorizontalScrollIndicator={false}
         />
@@ -84,7 +89,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#370B1E',
+
   },
   favoriteButton: {
     flexDirection: 'row',
