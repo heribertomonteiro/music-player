@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { View, Text, FlatList, TextInput, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import NavBarComponent from '../components/NavBarComponent';
+import SearchComponent from '../components/searchComponent';
 
 type RootStackParamList = {
   Home: undefined;
@@ -30,65 +32,51 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.searchContainer}>
-        <TextInput
-          style={styles.searchInput}
-          placeholder="Busca"
-          placeholderTextColor="#ccc"
-          value={searchText}
-          onChangeText={setSearchText}
+        <SearchComponent/>
+
+        <TouchableOpacity
+          style={styles.favoriteButton}
+          onPress={() => navigation.navigate('Favoritas')}
+        >
+          <Ionicons name="heart" size={24} color="white" />
+          <Text style={styles.favoriteText}>Favoritos</Text>
+        </TouchableOpacity>
+
+        <Text style={styles.sectionTitle}>Playlists</Text>
+        <FlatList
+          horizontal
+          data={playlists}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <View style={styles.playlistItem}>
+              <Image source={{ uri: item.image }} style={styles.playlistImage} />
+              <Text style={styles.playlistText}>{item.name}</Text>
+            </View>
+          )}
+          showsHorizontalScrollIndicator={false}
         />
-        <Ionicons name="search" size={24} color="white" />
-      </View>
 
-      <TouchableOpacity
-        style={styles.favoriteButton}
-        onPress={() => navigation.navigate('Favoritas')}
-      >
-        <Ionicons name="heart" size={24} color="white" />
-        <Text style={styles.favoriteText}>Favoritos</Text>
-      </TouchableOpacity>
+        <Text style={styles.sectionTitle}>Artistas</Text>
+        <FlatList
+          horizontal
+          data={artists}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <View style={styles.artistItem}>
+              <Image source={{ uri: item.image }} style={styles.artistImage} />
+              <Text style={styles.artistText}>{item.name}</Text>
+            </View>
+          )}
+          showsHorizontalScrollIndicator={false}
+        />
 
-      <Text style={styles.sectionTitle}>Playlists</Text>
-      <FlatList
-        horizontal
-        data={playlists}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <View style={styles.playlistItem}>
-            <Image source={{ uri: item.image }} style={styles.playlistImage} />
-            <Text style={styles.playlistText}>{item.name}</Text>
-          </View>
-        )}
-        showsHorizontalScrollIndicator={false}
-      />
-
-      <Text style={styles.sectionTitle}>Artistas</Text>
-      <FlatList
-        horizontal
-        data={artists}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <View style={styles.artistItem}>
-            <Image source={{ uri: item.image }} style={styles.artistImage} />
-            <Text style={styles.artistText}>{item.name}</Text>
-          </View>
-        )}
-        showsHorizontalScrollIndicator={false}
-      />
-
-      <View style={styles.controls}>
-        <Ionicons name="play-skip-back" size={30} color="white" />
-        <Ionicons name="play" size={30} color="white" />
-        <Ionicons name="play-skip-forward" size={30} color="white" />
-        <Ionicons name="volume-high" size={30} color="white" />
-      </View>
-
-      <View style={styles.navbar}>
-        <Ionicons name="home" size={30} color="white" />
-        <Ionicons name="images" size={30} color="white" />
-        <Ionicons name="person" size={30} color="white" />
-      </View>
+        <View style={styles.controls}>
+          <Ionicons name="play-skip-back" size={30} color="white" />
+          <Ionicons name="play" size={30} color="white" />
+          <Ionicons name="play-skip-forward" size={30} color="white" />
+          <Ionicons name="volume-high" size={30} color="white" />
+        </View>
+      <NavBarComponent/>
     </View>
   );
 };
@@ -97,20 +85,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#370B1E',
-    padding: 16,
-  },
-  searchContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#4C0C2A',
-    padding: 10,
-    borderRadius: 10,
-    marginBottom: 16,
-  },
-  searchInput: {
-    flex: 1,
-    color: 'white',
-    fontSize: 18,
   },
   favoriteButton: {
     flexDirection: 'row',
@@ -118,21 +92,28 @@ const styles = StyleSheet.create({
     backgroundColor: '#B1062C',
     padding: 12,
     borderRadius: 10,
+    marginRight: 16,
+    marginLeft: 16,
     marginBottom: 16,
+    
   },
   favoriteText: {
     color: 'white',
-    marginLeft: 8,
+    marginLeft: 16,
     fontSize: 18,
   },
   sectionTitle: {
     color: 'white',
     fontSize: 20,
     marginVertical: 12,
+    marginLeft: 16,
+    paddingLeft: 16,
+    paddingBottom: 8,
   },
   playlistItem: {
-    marginRight: 16,
+    marginRight: 8,
     alignItems: 'center',
+    paddingLeft: 16,
   },
   playlistImage: {
     width: 100,
@@ -143,6 +124,7 @@ const styles = StyleSheet.create({
   playlistText: {
     color: 'white',
     fontSize: 16,
+    marginLeft: 16,
   },
   artistItem: {
     marginRight: 16,
@@ -153,22 +135,19 @@ const styles = StyleSheet.create({
     height: 80,
     borderRadius: 40,
     marginBottom: 8,
+    marginLeft: 16,
   },
   artistText: {
     color: 'white',
     fontSize: 16,
+    marginLeft: 16,
   },
   controls: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     alignItems: 'center',
     marginTop: 20,
-  },
-  navbar: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-    marginTop: 20,
+    width: '100%',
   },
 });
 

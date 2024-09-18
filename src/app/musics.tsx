@@ -2,6 +2,7 @@ import { View, Image, Text, StyleSheet, TouchableOpacity, ScrollView } from "rea
 import SearchComponent from "../components/searchComponent";
 import Modal from "../components/ModalComponent";
 import { useState } from "react";
+import NavBarComponent from "../components/NavBarComponent";
 
 
 
@@ -18,7 +19,7 @@ export default function Musics(){
         <View style={styles.container}>
           <Text className="text-white text-2xl mb-10">Musicas</Text>
         </View>
-        <ScrollView style={{height: 400}}>
+        <ScrollView style={{height: 380}}>
         <View className="mb-10 flex-1 flex-row items-center justify-between" style={styles.musicas}>
             <View className="flex-row items-center gap-4">
               <Image source={require("../assets/images/retangulo.png")} />
@@ -102,6 +103,7 @@ export default function Musics(){
         show={modal}
         close={() => setModal(false)}
       />
+    <NavBarComponent/>
     </View>
     
   );
